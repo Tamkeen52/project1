@@ -6,6 +6,8 @@ import com.crm.crm.repository.CommentRepository;
 import com.crm.crm.repository.PostRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLOutput;
+
 @RestController
 @RequestMapping("/app/v1/comments")
 public class CommentController {
@@ -24,6 +26,9 @@ public class CommentController {
             @RequestBody Comment comment,
             @RequestParam long postId
     ){
+        System.out.println("100");
+        System.out.println("1000");
+
         Post post = postRepository.findById(postId).get();
         comment.setPost(post);
         commentRepository.save(comment);
